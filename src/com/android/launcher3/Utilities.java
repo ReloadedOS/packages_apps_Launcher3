@@ -162,6 +162,8 @@ public final class Utilities {
     public static final String ASI_PACKAGE = "com.google.android.as";
     public static final String LENS_ACTIVITY = "com.google.android.apps.lens.MainActivity";
     public static final String LENS_URI = "google://lens";
+    public static final String LENS_SHARE_ACTIVITY = "com.google.android.apps.search.lens.LensShareEntryPointActivity";
+
     public static final String KEY_DOCK_SEARCH = "pref_dock_search";
     public static final String KEY_SMARTSPACE = "pref_smartspace";
 
