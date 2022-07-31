@@ -72,4 +72,8 @@
     <string name="google_home_category_title">GOOGLE NOW</string>
     <string name="icon_category_title">ICONS CUSTOMIZATION</string>
 
+    <!-- Smartspace -->
+    <string name="smartspace_pref_title">At a Glance</string>
+    <string name="smartspace_pref_summary">Show smartspace at the top of home screen</string>
+
 </resources>
