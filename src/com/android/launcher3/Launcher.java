@@ -389,8 +389,6 @@ public class Launcher extends StatefulActivity<LauncherState>
 
     private StringCache mStringCache;
 
-    private boolean mPendingRestart;
-
     private boolean mSmartspaceEnabled;
 
     @Override
@@ -615,7 +613,7 @@ public class Launcher extends StatefulActivity<LauncherState>
     public void onConfigurationChanged(Configuration newConfig) {
         int diff = newConfig.diff(mOldConfig);
         if ((diff & (CONFIG_ORIENTATION | CONFIG_SCREEN_SIZE)) != 0) {
-            onIdpChanged(false, false);
+            onIdpChanged(false);
         }
 
         mOldConfig.setTo(newConfig);
@@ -623,11 +621,7 @@ public class Launcher extends StatefulActivity<LauncherState>
     }
 
     @Override
-    public void onIdpChanged(boolean modelPropertiesChanged, boolean taskbarChanged) {
-        if (taskbarChanged) {
-            mPendingRestart = true;
-        }
-
+    public void onIdpChanged(boolean modelPropertiesChanged) {
         initDeviceProfile(mDeviceProfile.inv);
         dispatchDeviceProfileChanged();
         reapplyUi();
@@ -1186,10 +1180,6 @@ public class Launcher extends StatefulActivity<LauncherState>
         AbstractFloatingView.closeAllOpenViewsExcept(this, false, TYPE_REBIND_SAFE);
         DragView.removeAllViews(this);
         TraceHelper.INSTANCE.endSection(traceToken);
-
-        if (mPendingRestart) {
-            System.exit(0);
-        }
     }
 
     @Override
