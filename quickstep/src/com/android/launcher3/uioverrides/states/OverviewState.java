@@ -27,6 +27,7 @@ import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherState;
 import com.android.launcher3.R;
+import com.android.launcher3.Utilities;
 import com.android.launcher3.taskbar.LauncherTaskbarUIController;
 import com.android.launcher3.util.DisplayController;
 import com.android.launcher3.util.Themes;
@@ -90,7 +91,11 @@ public class OverviewState extends LauncherState {
 
     @Override
     public int getVisibleElements(Launcher launcher) {
-        return OVERVIEW_ACTIONS;
+        int e = OVERVIEW_ACTIONS;
+        if (!Utilities.showClearAllInOverview(launcher)) {
+            e |= CLEAR_ALL_BUTTON;
+        }
+        return e;
     }
 
     @Override

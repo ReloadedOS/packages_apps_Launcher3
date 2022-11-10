@@ -125,6 +125,13 @@
             android:defaultValue="true" />
 
         <SwitchPreference
+            android:key="pref_overview_clear_all"
+            android:title="@string/overview_clear_all_title"
+            android:summary="@string/overview_clear_all_summary"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+        <SwitchPreference
             android:key="pref_show_top_shadow"
             android:title="@string/show_top_shadow"
             android:defaultValue="true"

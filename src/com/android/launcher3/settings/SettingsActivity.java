@@ -155,6 +155,7 @@ public class SettingsActivity extends CollapsingToolbarBaseActivity
         switch (key) {
             case KEY_DOCK_SEARCH:
             case KEY_SMARTSPACE:
+            case Utilities.KEY_OVERVIEW_CLEAR_ALL:
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:
@@ -355,6 +356,7 @@ public class SettingsActivity extends CollapsingToolbarBaseActivity
                 case KEY_SUGGESTIONS:
                     preference.setEnabled(isAsiEnabled());
                     return true;
+
                 case KEY_ICON_PACK:
                     setupIconPackPreference(preference);
                     return true;
