@@ -772,6 +772,9 @@ public abstract class AbsSwipeUpHandler<T extends StatefulActivity<S>,
         if (!canCreateNewOrUpdateExistingLauncherTransitionController()) {
             return;
         }
+        if (mActivity == null) {
+            return;
+        }
         initTransitionEndpoints(mActivity.getDeviceProfile());
         mAnimationFactory.createActivityInterface(mTransitionDragLength);
     }
